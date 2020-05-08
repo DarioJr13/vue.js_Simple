@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List HomeWork Vue</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .taskDone {
+   text-decoration: line-through;
+}
+    </style>
+</head>
+<body>
+    
+ <!--Vuejs Component-->
+<div class="container">
+    <div id="taskapp" class="col-sm-8 col-sm-offset-2">
+        <h1>{{nameApp}}</h1>
+        
+        <!--Form-->
+        <form v-on:submit="addTask">
+         <input type="text" v-model="tasks.titulo" class="form-control">
+         <br>
+         <input type="submit" value="Add Task" class="btn btn-block btn-success">
+        </form>
+        <br>
+        <table class="table">
+        <thead>
+            <tr>
+                <th>ChekcMark done</th>
+                <th>Task Name</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="task in tasks">
+                <td>
+                    <input type="checkbox" v-model="task.hecho">
+                </td>
+                <td :class="{taskDone: task.hecho}">
+                    {{task.titulo}}
+                </td>
+                <td>
+                    <button v-on:click="deleteTask(tasks)" class="btn btn-blok btn-danger">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+        </table>
+         </div>
+</div>
+
+
+
+ <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+ <script>
+     //NEW COMPONETS VUEJS
+new Vue({
+    el:'#taskapp',
+    data: {
+        nameApp: 'List Homework Vue.Js',
+     //Arreglo con Objetos
+        tasks:[{
+        titulo: 'Hablar con DIOS',
+        hecho: true
+        },{
+        titulo: 'Leer la Bilbia',
+        },
+        {
+        titulo: 'Hacer Deporte',
+        },
+        {
+        titulo: 'Tocar piano',
+        }
+        ]    
+    },
+    methods: {
+        deleteTask: function (tasks) {
+            this.tasks.splice(this.tasks.indexOf(tasks), 1);
+        },
+
+        addTask: function (e) {
+            e.preventDefault();
+            this.tasks.push({
+                titulo: this.tasks.titulo,
+                hecho:false
+            });
+            this.tasks.titulo = "";
+        }
+
+    }
+})
+
+
+ </script>
+<h3>The Simple Website was create bay Engenieer Darío Esquina Contac Me All 6664-9941</h3>   
+</body>
+</html>

@@ -1,0 +1,30 @@
+
+
+body{
+    background-color: darkkhaki;
+}
+
+
+a{
+    background-position: 25px;
+}
+
+a {
+    margin-left: 40px;
+    background-color: rgb(252, 252, 252);
+    width: 60%;
+    height: 50px;
+    bottom: 3;
+    position: fixed;
+    text-align: center;
+    }
+
+    h3{
+        margin-left: 20px;
+        background-color: white;
+        width: 70%;
+        height: 50px;
+        bottom: 20;
+        position: fixed;
+        text-align: center;
+    }
